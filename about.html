@@ -9,13 +9,108 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=9Cisn1AhWTTcn-xoRS_E71junaWEcmOxeoYRG55t4Nj-yGNs8cvtwqcPGdK72hwIUTI0sWGdQVvHiNbqDfXzE7BnXjlcLh4xUS_MdUUkdOqSEF3u7C6MalaikiGbPaavcwG4BfPMaQ15RZarb-QDHM9GYDK-p7AEZyutScWCFEK0zPWNbniCKnAsv_6qca8XWDFFykCcGFCgOtYWgfij-Gik_qjEd4FrYu8A5BHuaSfM8PQBqr7bGhrhVIHKLF1N561o1uFruDiXI8OzpkOAGUodv9rmp_suDLrcYhbA7LE" charset="UTF-8"></script><style>
+/* ============================================================
+   ABOUT PAGE — scoped enhancements (creative collage, team bios)
+   ============================================================ */
+
+/* ---------- 1. Clean magazine-grid gallery ---------- */
+.story-gallery{display:grid;grid-template-columns:1.25fr 1fr;grid-template-rows:200px 200px;gap:16px;position:relative}
+@media(max-width:900px){.story-gallery{grid-template-columns:1fr 1fr;grid-template-rows:180px 180px}}
+@media(max-width:520px){.story-gallery{grid-template-columns:1fr;grid-template-rows:repeat(3,200px)}}
+
+.sg-item{position:relative;overflow:hidden;border-radius:16px;box-shadow:0 16px 34px rgba(20,83,45,.14)}
+.sg-item img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.sg-item:hover img{transform:scale(1.07)}
+
+/* tall feature image spans both rows on the left */
+.sg-item.feature{grid-row:span 2}
+@media(max-width:520px){.sg-item.feature{grid-row:auto}}
+
+/* caption ribbon on the feature image */
+.sg-cap{position:absolute;bottom:0;left:0;right:0;padding:16px 18px;
+  background:linear-gradient(to top,rgba(11,58,30,.92),transparent);
+  color:var(--cream);font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase}
+
+/* the stat tile that sits in the grid instead of a 4th photo */
+.sg-tile{background:var(--forest);color:var(--cream);border-radius:16px;padding:24px;display:flex;
+  flex-direction:column;justify-content:center;position:relative;overflow:hidden;box-shadow:0 16px 34px rgba(11,58,30,.22)}
+.sg-tile::before{content:"";position:absolute;inset:0;opacity:.06;
+  background-image:radial-gradient(var(--gold) 1.4px,transparent 1.4px);background-size:18px 18px}
+.sg-tile .n{font-family:'Fraunces',serif;font-weight:700;font-size:2.6rem;line-height:1;color:var(--gold);position:relative}
+.sg-tile .t{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(251,247,238,.85);margin-top:8px;position:relative}
+.sg-tile .bar{width:34px;height:3px;background:var(--terracotta);margin-top:14px;position:relative}
+
+/* ---------- 2. Team cards: read-bio button ---------- */
+.lead-card{position:relative}
+.bio-btn{margin-top:16px;background:transparent;border:1.5px solid var(--terracotta);color:var(--terracotta);
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;
+  padding:10px 18px;border-radius:100px;cursor:pointer;transition:background .2s,color .2s,transform .2s}
+.bio-btn:hover{background:var(--terracotta);color:var(--cream);transform:translateY(-2px)}
+
+/* make the "and more" card a real button */
+.lead-more{cursor:pointer;border:0;width:100%;font-family:inherit;text-align:center}
+.lead-more:hover{background:var(--forest-deep);border-color:var(--gold)}
+
+/* ---------- 3. Bio modal ---------- */
+.bio-overlay{position:fixed;inset:0;background:rgba(11,58,30,.55);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+  z-index:1000;display:none;align-items:center;justify-content:center;padding:24px;opacity:0;transition:opacity .3s ease}
+.bio-overlay.open{display:flex;opacity:1}
+.bio-modal{background:var(--cream);max-width:620px;width:100%;max-height:88vh;overflow-y:auto;border-radius:18px;
+  position:relative;box-shadow:0 40px 80px rgba(11,58,30,.35);border-top:6px solid var(--terracotta);
+  transform:translateY(16px);transition:transform .3s ease}
+.bio-overlay.open .bio-modal{transform:none}
+.bio-close{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);
+  background:var(--cream);color:var(--ink);font-size:1.3rem;line-height:1;cursor:pointer;display:flex;align-items:center;
+  justify-content:center;transition:background .2s,color .2s}
+.bio-close:hover{background:var(--terracotta);color:var(--cream);border-color:var(--terracotta)}
+.bio-head{display:flex;gap:22px;align-items:center;padding:40px 40px 24px}
+@media(max-width:560px){.bio-head{flex-direction:column;text-align:center;padding:44px 24px 20px}}
+.bio-avatar{width:104px;height:104px;border-radius:50%;overflow:hidden;border:4px solid var(--gold);flex-shrink:0}
+.bio-avatar img{width:100%;height:100%;object-fit:cover}
+.bio-role{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--terracotta);margin-bottom:8px}
+.bio-name{font-family:'Fraunces',serif;font-size:1.5rem;color:var(--forest);line-height:1.15;margin-bottom:6px}
+.bio-aff{color:var(--stone);font-size:.9rem;font-style:italic}
+.bio-body{padding:0 40px 40px}
+@media(max-width:560px){.bio-body{padding:0 24px 32px}}
+.bio-body p{color:var(--stone);font-size:.96rem;line-height:1.7;margin-bottom:14px}
+.bio-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.bio-tag{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--forest);background:var(--cream-warm);border:1px solid var(--line);padding:6px 12px;border-radius:100px}
+
+/* ---------- 4. Full council expander ---------- */
+.council{margin-top:20px;display:none}
+.council.open{display:block;animation:councilIn .5s ease}
+@keyframes councilIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.council-title{font-family:'IBM Plex Mono',monospace;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--terracotta);margin:40px 0 24px;display:flex;align-items:center;gap:12px}
+.council-title::before{content:"\A7";color:var(--gold);font-family:'Fraunces',serif;font-size:1.2rem}
+.council-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:820px){.council-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.council-grid{grid-template-columns:1fr}}
+.council-item{background:var(--cream);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  display:flex;flex-direction:column;transition:transform .25s,border-color .25s,box-shadow .25s;cursor:pointer}
+.council-item:hover{transform:translateY(-5px);border-color:var(--terracotta);box-shadow:0 16px 32px rgba(20,83,45,.12)}
+.council-item .ci-photo{position:relative;height:170px;overflow:hidden;background:var(--forest)}
+.council-item .ci-photo img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.council-item:hover .ci-photo img{transform:scale(1.06)}
+.council-item .ci-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:4px}
+.council-item .ci-role{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--terracotta)}
+.council-item .ci-name{font-family:'Fraunces',serif;font-size:1.05rem;color:var(--forest);line-height:1.25}
+.council-item .ci-aff{color:var(--stone);font-size:.82rem;font-style:italic}
+.council-item .ci-link{margin-top:10px;display:inline-flex;align-items:center;gap:6px;align-self:flex-start;
+  border:1.5px solid var(--terracotta);color:var(--terracotta);border-radius:100px;padding:8px 14px;
+  font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;transition:background .2s,color .2s}
+.council-item:hover .ci-link{background:var(--terracotta);color:var(--cream)}
+</style>
 </head>
 <body>
 <div class="progress" id="progress"></div>
 <nav class="top">
   <div class="wrap">
     <a href="index.html" class="brand">
-      <img src="logos/SUN-ARINU-logo-transparent.png" alt="SUN-ARINU logo" class="brand-logo" style="height:48px;width:auto;flex-shrink:0;" onerror="this.style.display='none'">
+      <img src="logos/SUN-ARINU-logo-transparent.png" alt="SUN-ARINU logo" class="brand-logo" style="height:100px;width:auto;flex-shrink:0;" onerror="this.style.display='none'">
       <span>SUN-ARINU<small>Uganda &middot; est. 2023</small></span>
     </a>
     <div class="navlinks">
@@ -53,10 +148,19 @@
         <p>It operates as one of Uganda's official SUN Movement networks under the Uganda Nutrition Action Plan (UNAP II), alongside the SUN Business Network, SUN Civil Society Network, and Development Partners Group.</p>
         <p>The network harnesses the collective expertise of universities, researchers, and research institutions &mdash; turning nutrition science into training, policy, and practice that reaches communities across Uganda's four regions.</p>
       </div>
-      <div class="collage reveal">
-        <div class="collage-img a"><img src="img/photo-09.jpg" alt="Community" loading="lazy"><div class="collage-tag">Community</div></div>
-        <div class="collage-img b"><img src="img/photo-10.jpg" alt="Field work" loading="lazy"></div>
-        <div class="collage-img c"><img src="img/photo-11.jpg" alt="Team" loading="lazy"></div>
+
+      <!-- CLEAN MAGAZINE-GRID GALLERY -->
+      <div class="story-gallery reveal">
+        <div class="sg-item feature">
+          <img src="img/photo-09.jpg" alt="Community nutrition work" loading="lazy">
+          <div class="sg-cap">On the ground &middot; Karamoja</div>
+        </div>
+        <div class="sg-item"><img src="img/photo-10.jpg" alt="Field research" loading="lazy"></div>
+        <div class="sg-tile">
+          <div class="n">2023</div>
+          <div class="bar"></div>
+          <div class="t">Established &middot; Kampala, Uganda</div>
+        </div>
       </div>
     </div>
   </div>
@@ -65,32 +169,41 @@
   <div class="wrap">
     <div class="kicker">Leadership</div>
     <h2>Meet the team <em>steering the network</em>.</h2>
-    <p class="lead-intro">SUN-ARINU is led by an Executive Council drawn from Uganda's leading universities and research institutions.</p>
+    <p class="lead-intro">SUN-ARINU is led by an Executive Council drawn from Uganda's leading universities and research institutions. Tap any profile to read their full bio.</p>
     <div class="lead-grid">
       <div class="lead-card reveal">
-        <div class="lead-avatar"><img src="img/photo-12.jpg" alt="Chairperson" loading="lazy"></div>
+        <div class="lead-avatar"><img src="img/Kiko.jpg" alt="Chairperson" loading="lazy"></div>
         <div class="lead-role">Chairperson</div>
         <h3>Dr. Peterson Kato Kikomeko</h3>
         <div class="lead-aff">Kyambogo University</div>
+        <button class="bio-btn" data-bio="kikomeko">Read bio &rarr;</button>
       </div>
       <div class="lead-card reveal">
         <div class="lead-avatar"><img src="img/photo-13.jpg" alt="Vice Chairperson" loading="lazy"></div>
         <div class="lead-role">Vice Chairperson</div>
         <h3>Dr. Mbabazi Muniirah</h3>
         <div class="lead-aff">Africa Innovations Institute</div>
+        <button class="bio-btn" data-bio="mbabazi">Read bio &rarr;</button>
       </div>
       <div class="lead-card reveal">
-        <div class="lead-avatar"><img src="img/photo-14.jpg" alt="General Secretary" loading="lazy"></div>
+        <div class="lead-avatar"><img src="img/Ivan.png" alt="General Secretary" loading="lazy"></div>
         <div class="lead-role">General Secretary</div>
         <h3>Prof. Ivan Muzira Mukisa</h3>
         <div class="lead-aff">Makerere University</div>
+        <button class="bio-btn" data-bio="mukisa">Read bio &rarr;</button>
       </div>
-      <div class="lead-card lead-more reveal">
+      <button class="lead-card lead-more reveal" id="councilToggle" aria-expanded="false">
         <div class="plus">+</div>
         <div class="lead-role">And more</div>
         <h3>12 Executive Council members</h3>
-        <div class="arrow">Meet the team &rarr;</div>
-      </div>
+        <div class="arrow" id="councilToggleLabel">Meet the team &rarr;</div>
+      </button>
+    </div>
+
+    <!-- FULL COUNCIL EXPANDER -->
+    <div class="council" id="council">
+      <div class="council-title">Full Executive Council <span style="margin-left:auto;color:var(--stone);font-size:.68rem;">Tap a member for their bio</span></div>
+      <div class="council-grid" id="councilGrid"><!-- injected by JS --></div>
     </div>
   </div>
 </section>
@@ -116,8 +229,8 @@
       <div class="plogo" data-org="UNICEF"><img class="logo-img" src="logos/unicef.png" alt="UNICEF"></div>
       <div class="plogo" data-org="WFP"><img class="logo-img" src="logos/wfp.png" alt="WFP"></div>
       <div class="plogo" data-org="WHO"><img class="logo-img" src="logos/who.png" alt="WHO"></div>
-      <div class="plogo" data-org="USAID"><img class="logo-img" src="logos/usaid.png" alt="USAID"></div>
-      <div class="plogo" data-org="FCDO"><img class="logo-img" src="logos/fcdo.png" alt="FCDO"></div>
+      <div class="plogo" data-org="USAID"><img class="logo-img" src="logos/cascade-new-logo copy.png" alt="USAID"></div>
+      <div class="plogo" data-org="FCDO"><img class="logo-img" src="logos/netherlands.png" alt="FCDO"></div>
       <div class="plogo" data-org="GAIN"><img class="logo-img" src="logos/gain.png" alt="GAIN"></div>
     </div>
     <div class="subhead">Government &amp; Networks</div>
@@ -137,22 +250,6 @@
       <div class="plogo" data-org="Uganda Christian University"><img class="logo-img" src="logos/ucu.png" alt="Uganda Christian University"></div>
       <div class="plogo" data-org="Africa Innovations Institute"><img class="logo-img" src="logos/afrii.png" alt="Africa Innovations Institute"></div>
       <div class="plogo" data-org="NARO"><img class="logo-img" src="logos/naro.png" alt="NARO"></div>
-    </div>
-  </div>
-</section>
-<section class="frameworks">
-  <div class="wrap">
-    <span class="fw-label">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2c3 3 5 6.5 5 10s-2 7-5 10c-3-3-5-6.5-5-10s2-7 5-10z"/></svg>
-      Aligned with
-    </span>
-    <div class="fw-chips">
-      <span class="fw-chip">SDGs</span>
-      <span class="fw-chip">SUN Movement Strategy 4.0</span>
-      <span class="fw-chip">CAADP</span>
-      <span class="fw-chip">Uganda Vision 2040</span>
-      <span class="fw-chip">NDP IV</span>
-      <span class="fw-chip">UNAP</span>
     </div>
   </div>
 </section>
@@ -195,5 +292,127 @@
     <span>Local photography &middot; SUN-ARINU imagery</span>
   </div>
 </footer>
+
+<!-- BIO MODAL -->
+<div class="bio-overlay" id="bioOverlay">
+  <div class="bio-modal" role="dialog" aria-modal="true">
+    <button class="bio-close" id="bioClose" aria-label="Close">&times;</button>
+    <div class="bio-head">
+      <div class="bio-avatar"><img id="bioImg" src="" alt=""></div>
+      <div>
+        <div class="bio-role" id="bioRole"></div>
+        <div class="bio-name" id="bioName"></div>
+        <div class="bio-aff" id="bioAff"></div>
+      </div>
+    </div>
+    <div class="bio-body" id="bioBody"></div>
+  </div>
+</div>
+
 <script src="script.js"></script>
-</body></html>
+<script>
+/* ===== SUN-ARINU · About page team bios (sample data) ===== */
+const PEOPLE = {
+    kikomeko:{role:"Chairperson",name:"Dr. Peterson Kato Kikomeko",aff:"Kyambogo University",img:"img/Kiko.jpg",
+    tags:["Nutritional Science","Dietetics","Academia"],
+    bio:["Dr. Peterson Kato Kikomeko is a lecturer in the Department of Nutritional Science and Dietetics at Kyambogo University, where he also serves as the Internship Coordinator for the School of Vocational Studies.",
+         "He is the Chairperson of the SUN-ARINU Steering Committee, providing strategic leadership to Uganda's academia and research institutions network within the Scaling Up Nutrition Movement."]},
+  mbabazi:{role:"Vice Chairperson",name:"Dr. Mbabazi Muniirah",aff:"Africa Innovations Institute",img:"img/photo-13.jpg",
+    tags:["Agri-Nutrition","Biofortification","Innovation"],
+    bio:["Dr. Mbabazi Muniirah is a research scientist at the Africa Innovations Institute, specialising in agri-nutrition and the biofortification of staple crops to combat micronutrient deficiencies.",
+         "As Vice Chairperson, she leads SUN-ARINU's innovation agenda, connecting agricultural research with dietary outcomes and mentoring early-career women in nutrition science.",
+         "Her work has advanced climate-resilient, nutrient-dense cropping systems for smallholder farmers in Uganda's central and western regions."]},
+    mukisa:{role:"General Secretary",name:"Prof. Ivan Muzira Mukisa",aff:"Makerere University",img:"img/Ivan.png",
+    tags:["Food Science","Food Technology","Nutrition"],
+    bio:["Professor Ivan Muzira Mukisa is a Professor of Food Science and Technology at Makerere University, where he also serves as Head of the Department of Food Technology and Nutrition.",
+         "He is the General Secretary of the SUN-ARINU Steering Committee, coordinating the network's academia and research institutions within Uganda's Scaling Up Nutrition Movement."]},
+    nakawunde:{role:"Steering Committee Member",name:"Dr. Ndagire Catherine Tamale",aff:"Mountains of the Moon University",img:"img/Cathy.jpg",
+    tags:["Food Innovation","Nutrition","Academia"],
+    bio:["Dr. Ndagire Catherine Tamale is a Senior Lecturer in the Department of Food Innovation and Nutrition at Mountains of the Moon University.",
+         "She serves as a Member of the SUN-ARINU Steering Committee, supporting the network's academia and research institutions within Uganda's Scaling Up Nutrition Movement."]},
+    kabenge:{role:"Steering Committee Member",name:"Mr. George Gafabusa",aff:"Bugema University",img:"img/Geo.jpg",
+    tags:["Nutrition","Food Science","Food Technology"],
+    bio:["Mr. George Gafabusa is the Head of Department of Nutrition, Food Science and Technology at Bugema University.",
+         "He serves as a Member of the SUN-ARINU Steering Committee, supporting the network's academia and research institutions within Uganda's Scaling Up Nutrition Movement."]},
+   nalwoga:{role:"Steering Committee Member",name:"Mrs. Phionah Amutuhaire",aff:"Uganda Christian University",img:"img/Phi.jpg",
+    tags:["Nutrition","Academia"],
+    bio:["Mrs. Phionah Amutuhaire is a Lecturer at Uganda Christian University.",
+         "She serves as a Member of the SUN-ARINU Steering Committee, supporting the network's academia and research institutions within Uganda's Scaling Up Nutrition Movement."]},
+  ecel:{role:"Steering Committee Member",name:"Mrs. Adiango Anna Grace",aff:"Bukalasa Agricultural College",img:"img/Anna.jpg",
+    tags:["Agriculture","Nutrition","Academia"],
+    bio:["Mrs. Adiango Anna Grace is a Senior Lecturer at Bukalasa Agricultural College.",
+         "She serves as a Member of the SUN-ARINU Steering Committee, supporting the network's academia and research institutions within Uganda's Scaling Up Nutrition Movement."]},
+    atim:{role:"Steering Committee Member",name:"Mr. Kungu Joseph",aff:"Mildmay Institute of Health Sciences",img:"img/jo.png",
+    tags:["Nutrition","Health Sciences","Academia"],
+    bio:["Mr. Kungu Joseph is a Lecturer and Coordinator for Nutrition Programs at Mildmay Institute of Health Sciences.",
+         "He serves as a Member of the SUN-ARINU Steering Committee and Representative of all Diploma Institutions teaching Nutrition courses."]},
+   bwambale:{role:"Steering Committee Member",name:"Mr. Ssonko Peter",aff:"Natural Chemotherapeutics Research Institute",img:"img/so.jpg",
+    tags:["Food & Nutrition","Research"],
+    bio:["Mr. Ssonko Peter is a Food and Nutrition Researcher at the Natural Chemotherapeutics Research Institute.",
+         "He serves as a Member of the SUN-ARINU Steering Committee, supporting the network's academia and research institutions within Uganda's Scaling Up Nutrition Movement."]},
+  nambatya:{role:"Council Member",name:"Prof. Grace Nambatya",aff:"Natural Chemotherapeutics Research Institute",img:"img/photo-14.jpg",
+    tags:["Nutraceuticals","Traditional Foods"],
+    bio:["Prof. Grace Nambatya brings expertise in nutraceuticals and the scientific validation of traditional Ugandan foods and remedies.",
+         "She advises SUN-ARINU on integrating indigenous knowledge with modern nutrition research."]},
+  ssenyonga:{role:"Council Member",name:"Dr. Julius Ssenyonga",aff:"NARO",img:"img/photo-10.jpg",
+    tags:["Crop Research","Post-Harvest"],
+    bio:["Dr. Julius Ssenyonga, from the National Agricultural Research Organisation (NARO), links crop-improvement research with nutrition outcomes.",
+         "His focus areas include post-harvest handling and reducing nutrient loss along the food value chain."]},
+  kesande:{role:"Council Member",name:"Dr. Betty Kesande",aff:"Kabale University",img:"img/photo-09.jpg",
+    tags:["School Feeding","Education"],
+    bio:["Dr. Betty Kesande specialises in school-feeding programmes and nutrition education, representing south-western Uganda.",
+         "She works to embed nutrition literacy within the national education curriculum."]}
+};
+
+/* order for the council grid (excludes the 3 already shown as cards, but includes all 12 total) */
+const COUNCIL_ORDER = ["kikomeko","mbabazi","mukisa","nakawunde","kabenge","nalwoga","ecel","atim","bwambale","nambatya","ssenyonga","kesande"];
+
+/* ---- Build the council grid ---- */
+const grid = document.getElementById('councilGrid');
+COUNCIL_ORDER.forEach(id=>{
+  const p = PEOPLE[id];
+  const el = document.createElement('div');
+  el.className='council-item';
+  el.dataset.bio=id;
+  el.innerHTML=`<div class="ci-photo"><img src="${p.img}" alt="${p.name}" loading="lazy"></div><div class="ci-body"><div class="ci-role">${p.role}</div><div class="ci-name">${p.name}</div><div class="ci-aff">${p.aff}</div><span class="ci-link">Read bio &rarr;</span></div>`;
+  grid.appendChild(el);
+});
+
+/* ---- Modal logic ---- */
+const overlay=document.getElementById('bioOverlay');
+function openBio(id){
+  const p=PEOPLE[id]; if(!p) return;
+  document.getElementById('bioImg').src=p.img;
+  document.getElementById('bioImg').alt=p.name;
+  document.getElementById('bioRole').textContent=p.role;
+  document.getElementById('bioName').textContent=p.name;
+  document.getElementById('bioAff').textContent=p.aff;
+  const body=document.getElementById('bioBody');
+  body.innerHTML=p.bio.map(t=>`<p>${t}</p>`).join('')
+    + (p.tags?`<div class="bio-tags">${p.tags.map(t=>`<span class="bio-tag">${t}</span>`).join('')}</div>`:'');
+  overlay.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeBio(){overlay.classList.remove('open');document.body.style.overflow='';}
+
+document.addEventListener('click',e=>{
+  const trigger=e.target.closest('[data-bio]');
+  if(trigger){openBio(trigger.dataset.bio);}
+});
+document.getElementById('bioClose').addEventListener('click',closeBio);
+overlay.addEventListener('click',e=>{if(e.target===overlay)closeBio();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeBio();});
+
+/* ---- Council expand/collapse ---- */
+const toggle=document.getElementById('councilToggle');
+const council=document.getElementById('council');
+const label=document.getElementById('councilToggleLabel');
+toggle.addEventListener('click',()=>{
+  const open=council.classList.toggle('open');
+  toggle.setAttribute('aria-expanded',open);
+  label.innerHTML = open ? 'Hide the team &uarr;' : 'Meet the team &rarr;';
+  if(open){council.scrollIntoView({behavior:'smooth',block:'nearest'});}
+});
+</script>
+</body>
+</html>

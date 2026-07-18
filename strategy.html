@@ -9,13 +9,58 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=RtK2vyhGVsac-4oswPOeQRFqzMt34PuBeQJKMqCJFncJUGt2HxYzbjbYXZ9clCMjxlDmeV3oi9Pa8PWUOsFqpgN_Ju5imJbsj6ZIGxJxZOQIBSR0YHnDLadbuxpJzOev5H-LMENR_SNI1sbO82ivQZMcOSLLuYafP-Tt8oiwS1vRj0ztPvFf8WTdnCTNWnA7TTLialkc71GdDz955Fh9nqe0c0LpgBSIWUPDUGl_WoBCkL1wLem52uW5r2f2AC6FD-0zRL6-2J1yH4tfeK7afThBpkh_YJ2-Tetc6BoSBa8" charset="UTF-8"></script><style>
+/* ============================================================
+   STRATEGY PAGE — scoped: document download section
+   ============================================================ */
+.docs{padding:110px 0;background:var(--cream-warm);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+@media(max-width:720px){.docs{padding:80px 0}}
+.docs h2{font-size:clamp(2rem,4vw,3rem);color:var(--forest);margin-bottom:16px}
+.docs h2 em{color:var(--terracotta);font-style:italic;font-weight:500}
+.docs .intro{color:var(--stone);max-width:60ch;margin-bottom:46px}
+
+.doc-card{display:grid;grid-template-columns:auto 1fr auto;gap:30px;align-items:center;
+  background:var(--cream);border:1px solid var(--line);border-left:5px solid var(--terracotta);
+  border-radius:16px;padding:30px 32px;transition:transform .3s,box-shadow .3s}
+.doc-card:hover{transform:translateY(-4px);box-shadow:0 20px 44px rgba(20,83,45,.12)}
+@media(max-width:720px){.doc-card{grid-template-columns:1fr;text-align:center;gap:20px;padding:28px 24px}}
+
+/* PDF icon block */
+.doc-icon{width:74px;height:92px;background:var(--forest);border-radius:8px;position:relative;flex-shrink:0;
+  display:flex;align-items:flex-end;justify-content:center;padding-bottom:12px;box-shadow:0 12px 24px rgba(11,58,30,.22)}
+.doc-icon::before{content:"";position:absolute;top:0;right:0;border-width:0 18px 18px 0;border-style:solid;
+  border-color:var(--cream-warm) var(--cream-warm) transparent transparent;border-top-right-radius:8px}
+.doc-icon span{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.1em;font-weight:500;
+  color:var(--cream);background:var(--terracotta);padding:4px 8px;border-radius:4px}
+@media(max-width:720px){.doc-icon{margin:0 auto}}
+
+.doc-meta .doc-kick{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--terracotta);margin-bottom:8px}
+.doc-meta h3{font-family:'Fraunces',serif;font-size:1.35rem;color:var(--forest);line-height:1.25;margin-bottom:8px}
+.doc-meta p{color:var(--stone);font-size:.92rem;max-width:52ch}
+@media(max-width:720px){.doc-meta p{margin:0 auto}}
+.doc-specs{display:flex;flex-wrap:wrap;gap:16px;margin-top:14px;font-family:'IBM Plex Mono',monospace;
+  font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--stone)}
+@media(max-width:720px){.doc-specs{justify-content:center}}
+.doc-specs span{display:inline-flex;align-items:center;gap:6px}
+.doc-specs b{color:var(--forest);font-weight:600}
+
+.doc-actions{display:flex;flex-direction:column;gap:10px}
+@media(max-width:720px){.doc-actions{flex-direction:row;justify-content:center;flex-wrap:wrap}}
+.doc-btn{display:inline-flex;align-items:center;gap:10px;background:var(--terracotta);color:var(--cream);
+  border:1.5px solid var(--terracotta);border-radius:100px;padding:14px 26px;font-family:'IBM Plex Mono',monospace;
+  font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;font-weight:500;transition:background .2s,transform .2s;white-space:nowrap}
+.doc-btn:hover{background:var(--terracotta-deep);transform:translateY(-2px);color:var(--cream)}
+.doc-btn.ghost{background:transparent;color:var(--forest);border-color:var(--forest)}
+.doc-btn.ghost:hover{background:var(--forest);color:var(--cream)}
+</style>
 </head>
 <body>
 <div class="progress" id="progress"></div>
 <nav class="top">
   <div class="wrap">
     <a href="index.html" class="brand">
-      <img src="logos/SUN-ARINU-logo-transparent.png" alt="SUN-ARINU logo" class="brand-logo" style="height:48px;width:auto;flex-shrink:0;" onerror="this.style.display='none'">
+      <img src="logos/SUN-ARINU-logo-transparent.png" alt="SUN-ARINU logo" class="brand-logo" style="height:100px;width:auto;flex-shrink:0;" onerror="this.style.display='none'">
       <span>SUN-ARINU<small>Uganda &middot; est. 2023</small></span>
     </a>
     <div class="navlinks">
@@ -161,19 +206,27 @@
     </div>
   </div>
 </section>
-<section class="frameworks">
+<section class="docs">
   <div class="wrap">
-    <span class="fw-label">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2c3 3 5 6.5 5 10s-2 7-5 10c-3-3-5-6.5-5-10s2-7 5-10z"/></svg>
-      Aligned with
-    </span>
-    <div class="fw-chips">
-      <span class="fw-chip">SDGs</span>
-      <span class="fw-chip">SUN Movement Strategy 4.0</span>
-      <span class="fw-chip">CAADP</span>
-      <span class="fw-chip">Uganda Vision 2040</span>
-      <span class="fw-chip">NDP IV</span>
-      <span class="fw-chip">UNAP</span>
+    <div class="kicker">Download</div>
+    <h2>Get the <em>full strategy</em>.</h2>
+    <p class="intro">Read SUN-ARINU's complete five-year roadmap &mdash; vision, objectives, governance, financing, and the record of its official launch &mdash; in one document.</p>
+    <div class="doc-card reveal">
+      <div class="doc-icon"><span>PDF</span></div>
+      <div class="doc-meta">
+        <div class="doc-kick">Strategy 1.0 &middot; 2026&ndash;2030</div>
+        <h3>SUN-ARINU Strategy &mdash; Final Launch Report</h3>
+        <p>The complete strategy and launch report, covering the executive summary, three strategic objectives, governance structure, the UGX 11.15 billion investment plan, and proceedings from the official launch at Sheraton Kampala.</p>
+        <div class="doc-specs">
+          <span><b>Format</b> PDF</span>
+          <span><b>Pages</b> 32</span>
+          <span><b>Published</b> May 2026</span>
+        </div>
+      </div>
+      <div class="doc-actions">
+        <a class="doc-btn" href="docs/SUN-ARINU Strategy-Final Launch Report.pdf" download>&darr;&nbsp; Download PDF</a>
+        <a class="doc-btn ghost" href="docs/SUN-ARINU Strategy-Final Launch Report.pdf" target="_blank" rel="noopener">View online</a>
+      </div>
     </div>
   </div>
 </section>
@@ -217,4 +270,5 @@
   </div>
 </footer>
 <script src="script.js"></script>
-</body></html>
+</body>
+</html>

@@ -1,181 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SUN-ARINU · Uganda's Nutrition Research Network</title>
-<meta name="description" content="SUN-ARINU: Uganda's academia and research institutions network within the Scaling Up Nutrition Movement.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<div class="progress" id="progress"></div>
-<nav class="top">
-  <div class="wrap">
-    <a href="index.html" class="brand">
-      <img src="logos/SUN-ARINU-logo-transparent.png" alt="SUN-ARINU logo" class="brand-logo" style="height:48px;width:auto;flex-shrink:0;" onerror="this.style.display='none'">
-      <span>SUN-ARINU<small>Uganda &middot; est. 2023</small></span>
-    </a>
-    <div class="navlinks">
-      <a href="index.html" class="current">Home</a>
-      <a href="about.html" class="">About</a>
-      <a href="strategy.html" class="">Strategy</a>
-      <a href="events.html" class="">Events</a>
-      <a href="apply.html" class="nav-cta">Membership</a>
-    </div>
-    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-  </div>
-</nav>
-<header class="hero">
-  <div class="hero-left">
-    <div class="kicker">Est. 2023 &middot; Uganda</div>
-    <h1>Nourishing Uganda through <em>research, training &amp; innovation</em>.</h1>
-    <p class="lede">SUN-ARINU is Uganda's academia and research institutions network within the global Scaling Up Nutrition Movement &mdash; harnessing collective expertise to end malnutrition in all its forms by 2030.</p>
-    <div class="hero-actions">
-      <a href="apply.html" class="btn btn-primary">Join the network &rarr;</a>
-      <a href="strategy.html" class="btn btn-ghost">Explore strategy</a>
-    </div>
-    <div class="mini-stats">
-      <div class="mini-stat"><b>30+</b><span>Institutions</span></div>
-      <div class="mini-stat"><b>UGX 11.15B</b><span>Budget</span></div>
-      <div class="mini-stat"><b>4</b><span>Regions</span></div>
-    </div>
-  </div>
-  <div class="hero-right">
-    <img src="img/photo-01.jpg" alt="SUN-ARINU on the ground" loading="eager">
-    <div class="hero-overlay"></div>
-    <div class="hero-badge">
-      <div class="lbl">On the ground</div>
-      <div class="val">Field visit &middot; Karamoja</div>
-    </div>
-  </div>
-</header>
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <span>26% child stunting &nbsp;&#10022;&nbsp; Down from 45% in 2001 &nbsp;&#10022;&nbsp; 3 strategic objectives &nbsp;&#10022;&nbsp; UGX 11.15 billion &nbsp;&#10022;&nbsp; 4 regional offices &nbsp;&#10022;&nbsp; 30+ member institutions &nbsp;&#10022;&nbsp; Anchored in OPM &nbsp;&#10022;&nbsp; Aligned with SDGs &nbsp;&#10022;&nbsp; Ending malnutrition by 2030 &nbsp;&#10022;&nbsp;</span>
-    <span>26% child stunting &nbsp;&#10022;&nbsp; Down from 45% in 2001 &nbsp;&#10022;&nbsp; 3 strategic objectives &nbsp;&#10022;&nbsp; UGX 11.15 billion &nbsp;&#10022;&nbsp; 4 regional offices &nbsp;&#10022;&nbsp; 30+ member institutions &nbsp;&#10022;&nbsp; Anchored in OPM &nbsp;&#10022;&nbsp; Aligned with SDGs &nbsp;&#10022;&nbsp; Ending malnutrition by 2030 &nbsp;&#10022;&nbsp;</span>
-  </div>
-</div>
 
-<section class="featured">
-  <div class="wrap">
-    <div class="kicker">Discover</div>
-    <h2>Explore our <em>work</em>.</h2>
-    <p class="intro">Three ways into the network &mdash; who we are, how we work, and where we meet.</p>
-    <div class="fcards">
-      <a href="about.html" class="fcard reveal">
-        <div class="fcard-img"><img src="img/photo-02.jpg" alt="About" loading="lazy"><div class="fcard-badge">About</div></div>
-        <div class="fcard-body"><div class="meta">Who we are</div><h3>A joint platform for Uganda's nutrition researchers</h3><p>Formed 8 June 2023 and launched at the National Nutrition Forum in Kampala, SUN-ARINU convenes universities and research institutions under the Uganda Nutrition Action Plan.</p><span class="cta">Learn more &rarr;</span></div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SUN-ARINU · Uganda's Nutrition Research Network</title>
+  <meta name="description"
+    content="SUN-ARINU: Uganda's academia and research institutions network within the Scaling Up Nutrition Movement.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="alignment.css">
+  <script type="text/javascript"
+    src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=jPxnIfvv_k2fC0JMXDC_IHLO2VS_IT2NJlKIFnwkqOj0kN4j_jT_TohiwDDVK837WETHwjcw4XeBr_33YV2GcWXBtRYQX-hBEHd4gDF_YF-I97wo4e5qvvb52AIR1mrg-5fDEKclFOyhwZ3CzszLInhP27uYDm1N080uvmha_ACRBn_MX73crk4D6SVffrKQpMNUdmFKAuXi9MsNQ-P2Auw01vToVHj9rexylkVV3NA_sZjihpn7ULeq2sPNc8kslaXj-Tt0x2ENtTshIT8heKVLJArCSCOiQCcdhrrak-s"
+    charset="UTF-8"></script>
+</head>
+
+<body>
+  <div class="progress" id="progress"></div>
+  <nav class="top">
+    <div class="wrap">
+      <a href="index.html" class="brand">
+        <img src="logos/SUN-ARINU-logo-transparent.png" alt="SUN-ARINU logo" class="brand-logo"
+          style="height:100px;width:auto;flex-shrink:0;" onerror="this.style.display='none'">
+        <span>SUN-ARINU<small>Uganda &middot; est. 2023</small></span>
       </a>
-      <a href="strategy.html" class="fcard reveal">
-        <div class="fcard-img"><img src="img/photo-03.jpg" alt="Strategy" loading="lazy"><div class="fcard-badge">Strategy</div></div>
-        <div class="fcard-body"><div class="meta">2026-2030</div><h3>Strategy 1.0 &middot; Three objectives</h3><p>Mobilize &middot; Research &middot; Translate &mdash; a five-year framework backed by UGX 11.15 billion and aligned with SDGs, NDP IV and UNAP.</p><span class="cta">Read the strategy &rarr;</span></div>
-      </a>
-      <a href="events.html" class="fcard reveal">
-        <div class="fcard-img"><img src="img/photo-04.jpg" alt="Events" loading="lazy"><div class="fcard-badge">Events</div></div>
-        <div class="fcard-body"><div class="meta">Latest gatherings</div><h3>Events, forums &amp; webinars</h3><p>From the annual research forum to multi-sectoral trainings and community outreach &mdash; see past highlights and what's coming up.</p><span class="cta">See all events &rarr;</span></div>
-      </a>
+      <div class="navlinks">
+        <a href="index.html" class="current">Home</a>
+        <a href="about.html" class="">About</a>
+        <a href="strategy.html" class="">Strategy</a>
+        <a href="events.html" class="">Events</a>
+        <a href="apply.html" class="nav-cta">Membership</a>
+      </div>
+      <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <header class="hero">
+    <div class="hero-left">
+      <div class="kicker">Est. 2023 &middot; Uganda</div>
+      <h1>Nourishing Uganda through <em>research, training &amp; innovation</em>.</h1>
+      <p class="lede">SUN-ARINU is Uganda's academia and research institutions network within the global Scaling Up
+        Nutrition Movement &mdash; harnessing collective expertise to end malnutrition in all its forms by 2030.</p>
+      <div class="hero-actions">
+        <a href="apply.html" class="btn btn-primary">Join the network &rarr;</a>
+        <a href="strategy.html" class="btn btn-ghost">Explore strategy</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="img/arrangement-exotic-fruit-wooden-background.jpg" alt="SUN-ARINU on the ground" loading="eager">
+      <div class="hero-overlay"></div>
+      <div class="hero-badge">
+        <div class="lbl">On the ground</div>
+        <div class="val">Field visit &middot; Karamoja</div>
+      </div>
+    </div>
+  </header>
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Scaling Up Nutrition Academia &amp; Research Institutions Network &nbsp;✦&nbsp; Scaling Up Nutrition
+        Academia &amp; Research Institutions Network &nbsp;✦&nbsp;</span>
+      <span>Scaling Up Nutrition Academia &amp; Research Institutions Network &nbsp;✦&nbsp; Scaling Up Nutrition
+        Academia &amp; Research Institutions Network &nbsp;✦&nbsp;</span>
     </div>
   </div>
-</section>
-<section class="featured" style="background:var(--cream-warm);border-top:1px solid var(--line);">
-  <div class="wrap">
-    <div class="kicker">Latest updates</div>
-    <h2>What's <em>happening</em>.</h2>
-    <p class="intro">News, upcoming events, and fresh research from the network.</p>
-    <div class="fcards">
-      <a href="events.html" class="fcard reveal">
-        <div class="fcard-img"><img src="img/photo-05.jpg" alt="Research Forum" loading="lazy"><div class="fcard-badge">Webinar</div></div>
-        <div class="fcard-body"><div class="meta">&#128197; Aug 15, 2026 &middot; 3 min read</div><h3>SUN-ARINU Nutrition Research Forum 2026</h3><p>Join researchers, policymakers and practitioners for the annual forum focused on translating evidence into policy.</p><span class="cta">Register &rarr;</span></div>
-      </a>
-      <a href="events.html" class="fcard reveal">
-        <div class="fcard-img"><img src="img/photo-06.jpg" alt="Report" loading="lazy"><div class="fcard-badge">Report</div></div>
-        <div class="fcard-body"><div class="meta">&#128197; Jul 22, 2026 &middot; 5 min read</div><h3>Uganda Nutrition Research Landscape Assessment Released</h3><p>A comprehensive mapping of nutrition research capacity across Ugandan universities and research institutions.</p><span class="cta">Download report &rarr;</span></div>
-      </a>
-      <a href="events.html" class="fcard reveal">
-        <div class="fcard-img"><img src="img/photo-07.jpg" alt="Workshop" loading="lazy"><div class="fcard-badge">Workshop</div></div>
-        <div class="fcard-body"><div class="meta">&#128197; Jun 10, 2026 &middot; 4 min read</div><h3>Multi-sectoral Nutrition Programming Training</h3><p>Recap and outcomes from the three-day capacity building workshop for network members in Entebbe.</p><span class="cta">Read more &rarr;</span></div>
-      </a>
+
+  <section class="featured">
+    <div class="wrap">
+      <div class="kicker">Discover</div>
+      <h2>Explore our <em>work</em>.</h2>
+      <p class="intro">Three ways into the network &mdash; who we are, how we work, and where we meet.</p>
+      <div class="fcards">
+        <a href="about.html" class="fcard reveal">
+          <div class="fcard-img"><img src="img/photo-02.jpg" alt="About" loading="lazy">
+            <div class="fcard-badge">About</div>
+          </div>
+          <div class="fcard-body">
+            <div class="meta">Who we are</div>
+            <h3>A joint platform for Uganda's nutrition researchers</h3>
+            <p>Formed 8 June 2023 and launched at the National Nutrition Forum in Kampala, SUN-ARINU convenes
+              universities and research institutions under the Uganda Nutrition Action Plan.</p><span class="cta">Learn
+              more &rarr;</span>
+          </div>
+        </a>
+        <a href="strategy.html" class="fcard reveal">
+          <div class="fcard-img"><img src="img/photo-03.jpg" alt="Strategy" loading="lazy">
+            <div class="fcard-badge">Strategy</div>
+          </div>
+          <div class="fcard-body">
+            <div class="meta">2026-2030</div>
+            <h3>Strategy 1.0 &middot; Three objectives</h3>
+            <p>Mobilize &middot; Research &middot; Translate &mdash; a five-year framework backed by UGX 11.15 billion
+              and aligned with SDGs, NDP IV and UNAP.</p><span class="cta">Read the strategy &rarr;</span>
+          </div>
+        </a>
+        <a href="events.html" class="fcard reveal">
+          <div class="fcard-img"><img src="img/photo-04.jpg" alt="Events" loading="lazy">
+            <div class="fcard-badge">Events</div>
+          </div>
+          <div class="fcard-body">
+            <div class="meta">Latest gatherings</div>
+            <h3>Events, forums &amp; webinars</h3>
+            <p>From the annual research forum to multi-sectoral trainings and community outreach &mdash; see past
+              highlights and what's coming up.</p><span class="cta">See all events &rarr;</span>
+          </div>
+        </a>
+      </div>
     </div>
-  </div>
-</section>
-<section class="partners">
-  <div class="wrap">
-    <div class="kicker">Our supporters</div>
-    <h2>Thanks to our committed <em>donors &amp; partners</em>.</h2>
-    <p style="color:var(--stone);max-width:60ch;">SUN-ARINU is powered by government leadership, development partners, academic members, and civil society allies working together on nutrition action.</p>
-    <div class="plogos" style="margin-top:40px;">
-      <div class="plogo" data-org="UNICEF"><img class="logo-img" src="logos/unicef.png" alt="UNICEF"></div>
-      <div class="plogo" data-org="WFP"><img class="logo-img" src="logos/wfp.png" alt="WFP"></div>
-      <div class="plogo" data-org="WHO"><img class="logo-img" src="logos/who.png" alt="WHO"></div>
-      <div class="plogo" data-org="USAID"><img class="logo-img" src="logos/usaid.png" alt="USAID"></div>
-      <div class="plogo" data-org="FCDO"><img class="logo-img" src="logos/fcdo.png" alt="FCDO"></div>
-      <div class="plogo" data-org="GAIN"><img class="logo-img" src="logos/gain.png" alt="GAIN"></div>
-      <div class="plogo" data-org="Irish Aid"><img class="logo-img" src="logos/irish-aid.png" alt="Irish Aid"></div>
-      <div class="plogo" data-org="European Union"><img class="logo-img" src="logos/eu.png" alt="European Union"></div>
-      <div class="plogo" data-org="World Bank"><img class="logo-img" src="logos/worldbank.png" alt="World Bank"></div>
-      <div class="plogo" data-org="Kingdom of Netherlands"><img class="logo-img" src="logos/netherlands.png" alt="Kingdom of Netherlands"></div>
-      <div class="plogo" data-org="Norway MFA"><img class="logo-img" src="logos/norway-mfa.png" alt="Norway MFA"></div>
-      <div class="plogo" data-org="BMZ Germany"><img class="logo-img" src="logos/bmz.png" alt="BMZ Germany"></div>
+  </section>
+  <section class="featured" style="background:var(--cream-warm);border-top:1px solid var(--line);">
+    <div class="wrap">
+      <div class="kicker">Latest updates</div>
+      <h2>What's <em>happening</em>.</h2>
+      <p class="intro">News, upcoming events, and fresh research from the network.</p>
+      <div class="fcards">
+        <a href="events.html" class="fcard reveal">
+          <div class="fcard-img"><img src="img/photo-05.jpg" alt="Research Forum" loading="lazy">
+            <div class="fcard-badge">Webinar</div>
+          </div>
+          <div class="fcard-body">
+            <div class="meta"> Aug 15, 2026 &middot; 3 min read</div>
+            <h3>SUN-ARINU Nutrition Research Forum 2026</h3>
+            <p>Join researchers, policymakers and practitioners for the annual forum focused on translating evidence
+              into policy.</p><span class="cta">Register &rarr;</span>
+          </div>
+        </a>
+        <a href="events.html" class="fcard reveal">
+          <div class="fcard-img"><img src="img/photo-06.jpg" alt="Report" loading="lazy">
+            <div class="fcard-badge">Report</div>
+          </div>
+          <div class="fcard-body">
+            <div class="meta"> Jul 22, 2026 &middot; 5 min read</div>
+            <h3>Uganda Nutrition Research Landscape Assessment Released</h3>
+            <p>A comprehensive mapping of nutrition research capacity across Ugandan universities and research
+              institutions.</p><span class="cta">Download report &rarr;</span>
+          </div>
+        </a>
+        <a href="events.html" class="fcard reveal">
+          <div class="fcard-img"><img src="img/photo-07.jpg" alt="Workshop" loading="lazy">
+            <div class="fcard-badge">Workshop</div>
+          </div>
+          <div class="fcard-body">
+            <div class="meta"> Jun 10, 2026 &middot; 4 min read</div>
+            <h3>Multi-sectoral Nutrition Programming Training</h3>
+            <p>Recap and outcomes from the three-day capacity building workshop for network members in Entebbe.</p><span
+              class="cta">Read more &rarr;</span>
+          </div>
+        </a>
+      </div>
     </div>
-  </div>
-</section>
-<section class="frameworks">
-  <div class="wrap">
-    <span class="fw-label">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2c3 3 5 6.5 5 10s-2 7-5 10c-3-3-5-6.5-5-10s2-7 5-10z"/></svg>
-      Aligned with
-    </span>
-    <div class="fw-chips">
-      <span class="fw-chip">SDGs</span>
-      <span class="fw-chip">SUN Movement Strategy 4.0</span>
-      <span class="fw-chip">CAADP</span>
-      <span class="fw-chip">Uganda Vision 2040</span>
-      <span class="fw-chip">NDP IV</span>
-      <span class="fw-chip">UNAP</span>
+  </section>
+  <section class="partners">
+    <div class="wrap">
+      <div class="kicker">Our supporters</div>
+      <h2>Thanks to our committed <em>donors &amp; partners</em>.</h2>
+      <p style="color:var(--stone);max-width:60ch;">SUN-ARINU is powered by government leadership, development partners,
+        academic members, and civil society allies working together on nutrition action.</p>
+      <div class="plogos" style="margin-top:40px;">
+        <div class="plogo" data-org="Cascade"><img class="logo-img" src="logos/cascade-new-logo copy.png" alt="Cascade">
+        </div>
+        <div class="plogo" data-org="GAIN"><img class="logo-img" src="logos/gain.png" alt="GAIN"></div>
+        <div class="plogo" data-org="UNICEF"><img class="logo-img" src="logos/unicef.png" alt="UNICEF"></div>
+        <div class="plogo" data-org="WFP"><img class="logo-img" src="logos/wfp.png" alt="WFP"></div>
+        <div class="plogo" data-org="WHO"><img class="logo-img" src="logos/who.png" alt="WHO"></div>
+        <div class="plogo" data-org="Kingdom of Netherlands"><img class="logo-img" src="logos/netherlands.png"
+            alt="Kingdom of Netherlands"></div>
+
+      </div>
     </div>
-  </div>
-</section>
-<footer>
-  <div class="wrap">
-    <div class="footmark">SUN-<em>ARINU</em></div>
-    <div class="fgrid">
-      <div>
-        <p>Scaling Up Nutrition Academia &amp; Research Institutions Network, Uganda. Strategy 1.0 &middot; 2026&ndash;2030.</p>
-        <div class="socials" style="margin-top:20px">
-          <a href="#" aria-label="X"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-          <a href="#" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"/></svg></a>
-          <a href="#" aria-label="YouTube"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+  </section>
+  <section class="frameworks alignment">
+    <div class="wrap">
+      <span class="fw-label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <circle cx="12" cy="12" r="10" />
+          <path d="M2 12h20M12 2c3 3 5 6.5 5 10s-2 7-5 10c-3-3-5-6.5-5-10s2-7 5-10z" />
+        </svg>
+        Aligned with
+      </span>
+      <h2 style="margin-top:14px;">Anchored in global, continental &amp; national <em>frameworks</em>.</h2>
+      <p class="intro">SUN-ARINU's research is deliberately positioned to serve the agendas that shape nutrition action
+        &mdash; from the Sustainable Development Goals down to Uganda's own development plans.</p>
+
+      <div class="align-grid">
+        <div class="align-block reveal">
+          <div class="align-head"><span class="align-num">01</span>
+            <h3>Global alignment</h3>
+          </div>
+          <div class="align-item">
+            <h4>Sustainable Development Goals (SDGs)</h4>
+            <p>Our research directly drives SDG 2 (Zero Hunger) by targeting targets 2.1 (access to safe, nutritious
+              food) and 2.2 (ending all forms of malnutrition). Furthermore, our studies intersect with SDG 3 (Good
+              Health and Well-being) and SDG 13 (Climate Action) by analysing how climate shocks alter household food
+              security and crop nutrient density.</p>
+          </div>
+          <div class="align-item">
+            <h4>Nutrition for Growth (N4G) Commitments</h4>
+            <p>We support global accountability frameworks by designing robust monitoring tools. This ensures that
+              international and domestic financial pledges are optimised and directed toward high-impact, evidence-based
+              nutrition interventions.</p>
+          </div>
+        </div>
+
+        <div class="align-block reveal">
+          <div class="align-head"><span class="align-num">02</span>
+            <h3>Continental alignment</h3>
+          </div>
+          <div class="align-item">
+            <h4>AU Kampala CAADP Declaration (2026&ndash;2035)</h4>
+            <p>SUN-ARINU actively services the CAADP operational cycle (<em>Governance &middot; Diagnostics &middot;
+                Investment &middot; Accountability</em>). We provide the localised dietary, soil, and market data
+              required to craft National Agrifood System Investment Plans (NASIPs) and feed into the Biennial Review
+              (BR) scorecard mechanism.</p>
+          </div>
+        </div>
+
+        <div class="align-block reveal">
+          <div class="align-head"><span class="align-num">03</span>
+            <h3>Country alignment</h3>
+          </div>
+          <div class="align-item">
+            <h4>Uganda Vision 2040</h4>
+            <p>Chronic undernutrition and childhood stunting impose an annual GDP drain of 5.6% due to lost cognitive
+              and physical productivity. SUN-ARINU's work directly protects Uganda's macroeconomic future by generating
+              interventions to lower stunting rates.</p>
+          </div>
+          <div class="align-item">
+            <h4>NDPIV Human Capital Development</h4>
+            <p>Under the Fourth National Development Plan, Uganda aims for double-digit economic growth and the creation
+              of 4.4 million jobs. We support the Human Capital Development Programme of NDPIV by providing the
+              multi-sectoral data needed to close implementation gaps between agro-industrialisation and household-level
+              dietary diversity.</p>
+          </div>
+        </div>
+
+        <div class="align-block reveal">
+          <div class="align-head"><span class="align-num">04</span>
+            <h3>Operational alignment</h3>
+          </div>
+          <div class="align-item">
+            <h4>SUN Movement Strategy 4.0</h4>
+            <p>Shifting from a centralised model to country-led ownership, SUN 4.0 prioritises institutional
+              sustainability, shock resilience, and the "double burden" of malnutrition (coexisting undernutrition and
+              obesity). SUN-ARINU serves as the localised knowledge-management anchor for this strategy.</p>
+          </div>
+          <div class="align-item">
+            <h4>Uganda Nutrition Action Plan (UNAP)</h4>
+            <p>Coordinated by the Office of the Prime Minister (OPM), UNAP bridges the gap between Nutrition-Specific
+              actions (clinical interventions, maternal and child supplementation) and Nutrition-Sensitive actions
+              (biofortification, WASH, and school feeding). SUN-ARINU validates these interventions through rigorous
+              field monitoring and evaluation.</p>
+          </div>
         </div>
       </div>
-      <div><h4>Explore</h4><ul>
-        <li><a href="about.html">About</a></li>
-        <li><a href="strategy.html">Strategy</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li><a href="apply.html">Membership</a></li>
-      </ul></div>
-      <div><h4>Networks</h4><ul>
-        <li><a href="https://scalingupnutrition.org" target="_blank" rel="noopener">SUN Movement</a></li>
-        <li><a href="#">SUN Civil Society</a></li>
-        <li><a href="#">SUN Business</a></li>
-        <li><a href="#">UN Nutrition</a></li>
-      </ul></div>
-      <div>
-        <h4>Newsletter</h4>
-        <p style="font-size:0.86rem">Occasional updates from the Secretariat.</p>
-        <form class="newsletter" onsubmit="event.preventDefault();this.innerHTML='<span style=color:var(--gold);font-family:IBM+Plex+Mono,monospace;font-size:0.78rem;letter-spacing:0.06em;text-transform:uppercase>Subscribed &#10003;</span>'">
-          <input type="email" placeholder="Your email" required>
-          <button type="submit">Join</button>
-        </form>
+    </div>
+  </section>
+  <footer>
+    <div class="wrap">
+      <div class="footmark">SUN-<em>ARINU</em></div>
+      <div class="fgrid">
+        <div>
+          <p>Scaling Up Nutrition Academia &amp; Research Institutions Network, Uganda. Strategy 1.0 &middot;
+            2026&ndash;2030.</p>
+          <div class="socials" style="margin-top:20px">
+            <a href="#" aria-label="X"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg></a>
+            <a href="#" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z" />
+              </svg></a>
+            <a href="#" aria-label="YouTube"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg></a>
+          </div>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="strategy.html">Strategy</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="apply.html">Membership</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Networks</h4>
+          <ul>
+            <li><a href="https://scalingupnutrition.org" target="_blank" rel="noopener">SUN Movement</a></li>
+            <li><a href="#">SUN Civil Society</a></li>
+            <li><a href="#">SUN Business</a></li>
+            <li><a href="#">UN Nutrition</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Newsletter</h4>
+          <p style="font-size:0.86rem">Occasional updates from the Secretariat.</p>
+          <form class="newsletter"
+            onsubmit="event.preventDefault();this.innerHTML='<span style=color:var(--gold);font-family:IBM+Plex+Mono,monospace;font-size:0.78rem;letter-spacing:0.06em;text-transform:uppercase>Subscribed ✓</span>'">
+            <input type="email" placeholder="Your email" required>
+            <button type="submit">Join</button>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="footnote">
-    <span>&copy; 2026 SUN-ARINU. All rights reserved.</span>
-    <span>Local photography &middot; SUN-ARINU imagery</span>
-  </div>
-</footer>
-<script src="script.js"></script>
-</body></html>
+    <div class="footnote">
+      <span>&copy; 2026 SUN-ARINU. All rights reserved.</span>
+      <span>Local photography &middot; SUN-ARINU imagery</span>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>

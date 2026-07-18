@@ -4,18 +4,44 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Events &middot; SUN-ARINU</title>
-<meta name="description" content="Past and upcoming SUN-ARINU events, gallery, and downloadable documents.">
+<meta name="description" content="Upcoming and past SUN-ARINU events. Register to attend upcoming events, join online, and download recordings of past sessions.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=bCaQAf3mKk4LuH6_cyOB2iH3BWsns-HNlgWcIFvpglrHXq-ChlsqtZ6SeCtuxlJMyagvho-4DOLWy-ixFnlnfgh3JHPZlZPeYzcF083lOZv0FsfDoZL0H7xuqP_WrG3zjZP8St4DKdCCbr0n19E4r5ZSro_VURE729jAVv7Fwg2bXVFOInGfkaSAgqC8bb3ZGwn8QKnF2N6nsMrf0i6qqmFCH2fWYIuHoOHIoo_6hk4MVhKnnVJC5FBVGdIPqSUGghVCYyk-zjf5NDzAYPFPRwa3SySxHEVWRRxuKtyv8L8" charset="UTF-8"></script><style>
+/* ============================================================
+   EVENTS PAGE — enhanced action buttons for register / join / recording
+   ============================================================ */
+/* status pill on upcoming event images */
+.event-img .live-tag{position:absolute;top:12px;right:12px;z-index:2;display:inline-flex;align-items:center;gap:7px;
+  background:var(--terracotta);color:var(--cream);padding:7px 13px;border-radius:100px;
+  font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500}
+.event-img .live-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--cream);animation:pulse 1.6s infinite}
+@keyframes pulse{0%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.5)}100%{opacity:1;transform:scale(1)}}
+
+/* primary (register) button variant */
+.dl-btn.register{background:var(--terracotta);color:var(--cream);border-color:var(--terracotta)}
+.dl-btn.register:hover{background:var(--terracotta-deep);border-color:var(--terracotta-deep);color:var(--cream)}
+/* join online button variant */
+.dl-btn.join{background:var(--forest);color:var(--cream);border-color:var(--forest)}
+.dl-btn.join:hover{background:var(--forest-deep);border-color:var(--forest-deep);color:var(--cream)}
+/* recording button variant */
+.dl-btn.recording{background:transparent;color:var(--forest);border-color:var(--forest)}
+.dl-btn.recording:hover{background:var(--forest);color:var(--cream)}
+
+/* small helper note under upcoming actions */
+.ev-hint{margin-top:12px;font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.03em;color:var(--stone);
+  display:flex;align-items:center;gap:7px}
+.ev-hint svg{color:var(--forest);flex-shrink:0}
+</style>
 </head>
 <body>
 <div class="progress" id="progress"></div>
 <nav class="top">
   <div class="wrap">
     <a href="index.html" class="brand">
-      <img src="logos/SUN-ARINU-logo-transparent.png" alt="SUN-ARINU logo" class="brand-logo" style="height:48px;width:auto;flex-shrink:0;" onerror="this.style.display='none'">
+      <img src="logos/SUN-ARINU-logo-transparent.png" alt="SUN-ARINU logo" class="brand-logo" style="height:100px;width:auto;flex-shrink:0;" onerror="this.style.display='none'">
       <span>SUN-ARINU<small>Uganda &middot; est. 2023</small></span>
     </a>
     <div class="navlinks">
@@ -32,9 +58,9 @@
   <div class="noise"></div>
   <div class="wrap">
     <div>
-      <div class="kicker">Events &amp; Gallery</div>
+      <div class="kicker">Events</div>
       <h1>Where we <em>gather</em>.</h1>
-      <p class="lede">Past and upcoming forums, conferences, webinars and workshops of SUN-ARINU &mdash; with downloadable programmes and reports.</p>
+      <p class="lede">Register for upcoming forums, conferences, webinars and workshops &mdash; attend online after registering &mdash; and catch up on past sessions with downloadable recordings.</p>
     </div>
     <div class="hero-thumb">
       <img src="img/photo-15.jpg" alt="Events at SUN-ARINU" loading="eager">
@@ -51,38 +77,57 @@
       <button class="active" data-tab="upcoming"><strong>01</strong>Upcoming</button>
       <button data-tab="past"><strong>02</strong>Past</button>
     </div>
+
+    <!-- ========================= UPCOMING ========================= -->
     <div id="upcoming" class="event-list-panel active">
       <div class="event-item reveal">
-        <div class="event-img"><img src="img/photo-16.jpg" alt="Research Forum" loading="lazy"><div class="event-date"><span class="day">15</span><span class="mo">Aug</span></div></div>
+        <div class="event-img"><span class="live-tag"><span class="dot"></span> Registration open</span><img src="img/photo-16.jpg" alt="Research Forum" loading="lazy"><div class="event-date"><span class="day">15</span><span class="mo">Aug</span></div></div>
         <div class="event-body">
-          <div class="event-type">Webinar</div>
+          <div class="event-type">Webinar &middot; Hybrid</div>
           <h3>SUN-ARINU Nutrition Research Forum 2026</h3>
           <div class="event-meta"><span>&#128197; 15 Aug 2026</span><span>&#128205; Kampala + Online</span><span>&#9201; 09:00&ndash;16:00 EAT</span></div>
           <p>Annual research forum bringing together academia, government, and development partners to translate the latest evidence into nutrition programming.</p>
-          <div class="event-actions"><a href="#" class="dl-btn">&darr; Concept note (PDF)</a><a href="#" class="dl-btn">&rarr; Register</a></div>
+          <div class="event-actions">
+            <a href="#" class="dl-btn register" target="_blank" rel="noopener">&rarr; Register to attend</a>
+            <a href="#" class="dl-btn join" target="_blank" rel="noopener">&#128250; Join online</a>
+            <a href="#" class="dl-btn">&darr; Concept note (PDF)</a>
+          </div>
+          <div class="ev-hint"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg> The "Join online" link opens for registered attendees on the event day.</div>
         </div>
       </div>
       <div class="event-item reveal">
-        <div class="event-img"><img src="img/photo-17.jpg" alt="Training Workshop" loading="lazy"><div class="event-date"><span class="day">12</span><span class="mo">Sep</span></div></div>
+        <div class="event-img"><span class="live-tag"><span class="dot"></span> Registration open</span><img src="img/photo-17.jpg" alt="Training Workshop" loading="lazy"><div class="event-date"><span class="day">12</span><span class="mo">Sep</span></div></div>
         <div class="event-body">
           <div class="event-type">Conference &middot; 3 days</div>
           <h3>Multi-sectoral Nutrition Programming Training</h3>
           <div class="event-meta"><span>&#128197; 12&ndash;14 Sep 2026</span><span>&#128205; Entebbe</span><span>&#128101; Members only</span></div>
           <p>Three-day capacity building workshop for SUN-ARINU member institutions covering programme design, monitoring, and multi-sectoral coordination.</p>
-          <div class="event-actions"><a href="#" class="dl-btn">&darr; Agenda (PDF)</a><a href="#" class="dl-btn">&rarr; Register</a></div>
+          <div class="event-actions">
+            <a href="#" class="dl-btn register" target="_blank" rel="noopener">&rarr; Register to attend</a>
+            <a href="#" class="dl-btn join" target="_blank" rel="noopener">&#128250; Join online</a>
+            <a href="#" class="dl-btn">&darr; Agenda (PDF)</a>
+          </div>
+          <div class="ev-hint"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg> The "Join online" link opens for registered attendees on the event day.</div>
         </div>
       </div>
       <div class="event-item reveal">
-        <div class="event-img"><img src="img/photo-18.jpg" alt="Summit" loading="lazy"><div class="event-date"><span class="day">22</span><span class="mo">Oct</span></div></div>
+        <div class="event-img"><span class="live-tag"><span class="dot"></span> Registration open</span><img src="img/photo-18.jpg" alt="Summit" loading="lazy"><div class="event-date"><span class="day">22</span><span class="mo">Oct</span></div></div>
         <div class="event-body">
           <div class="event-type">Summit</div>
           <h3>Uganda Nutrition Summit 2026</h3>
           <div class="event-meta"><span>&#128197; 22 Oct 2026</span><span>&#128205; Speke Resort Munyonyo</span><span>&#127915; Invitation only</span></div>
           <p>National summit convening government, partners, and networks to review nutrition progress and set priorities for the year ahead.</p>
-          <div class="event-actions"><a href="#" class="dl-btn">&darr; Concept note (PDF)</a><a href="#" class="dl-btn">&rarr; Register interest</a></div>
+          <div class="event-actions">
+            <a href="#" class="dl-btn register" target="_blank" rel="noopener">&rarr; Register interest</a>
+            <a href="#" class="dl-btn join" target="_blank" rel="noopener">&#128250; Join online</a>
+            <a href="#" class="dl-btn">&darr; Concept note (PDF)</a>
+          </div>
+          <div class="ev-hint"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg> The "Join online" link opens for registered attendees on the event day.</div>
         </div>
       </div>
     </div>
+
+    <!-- ========================= PAST ========================= -->
     <div id="past" class="event-list-panel">
       <div class="event-item reveal">
         <div class="event-img"><img src="img/photo-19.jpg" alt="Launch event" loading="lazy"><div class="event-date"><span class="day">17</span><span class="mo">May</span></div></div>
@@ -91,7 +136,11 @@
           <h3>SUN-ARINU Formal Launch at NNF</h3>
           <div class="event-meta"><span>&#128197; 17 May 2024</span><span>&#128205; Kampala</span><span>&#128101; 120 attendees</span></div>
           <p>The official launch of SUN-ARINU during Uganda's National Nutrition Forum, presided over by the Office of the Prime Minister and the Ministry of Education and Sports.</p>
-          <div class="event-actions"><a href="#" class="dl-btn">&darr; Programme</a><a href="#" class="dl-btn">&darr; Photo report</a></div>
+          <div class="event-actions">
+            <a href="#" class="dl-btn recording" target="_blank" rel="noopener">&#9654; Watch recording</a>
+            <a href="#" class="dl-btn">&darr; Programme</a>
+            <a href="#" class="dl-btn">&darr; Photo report</a>
+          </div>
         </div>
       </div>
       <div class="event-item reveal">
@@ -101,7 +150,11 @@
           <h3>SUN-ARINU Constitution &amp; Formation</h3>
           <div class="event-meta"><span>&#128197; 8 Jun 2023</span><span>&#128205; Kampala</span><span>&#128101; Founding members</span></div>
           <p>Founding assembly that constituted SUN-ARINU as an indigenous SUN chapter, elected the first Executive Council, and adopted the network's constitution.</p>
-          <div class="event-actions"><a href="#" class="dl-btn">&darr; Constitution</a><a href="#" class="dl-btn">&darr; Minutes</a></div>
+          <div class="event-actions">
+            <a href="#" class="dl-btn recording" target="_blank" rel="noopener">&#9654; Watch recording</a>
+            <a href="#" class="dl-btn">&darr; Constitution</a>
+            <a href="#" class="dl-btn">&darr; Minutes</a>
+          </div>
         </div>
       </div>
       <div class="event-item reveal">
@@ -111,41 +164,13 @@
           <h3>Strategy 1.0 Development Workshop</h3>
           <div class="event-meta"><span>&#128197; 12 Nov 2025</span><span>&#128205; Kampala</span><span>&#128101; Executive + partners</span></div>
           <p>Multi-day co-creation workshop that produced the SUN-ARINU Strategy 1.0 (2026&ndash;2030), with consultation across government, academia, and development partners.</p>
-          <div class="event-actions"><a href="#" class="dl-btn">&darr; Strategy 1.0 (PDF)</a><a href="#" class="dl-btn">&darr; Workshop report</a></div>
+          <div class="event-actions">
+            <a href="#" class="dl-btn recording" target="_blank" rel="noopener">&#9654; Watch recording</a>
+            <a href="#" class="dl-btn">&darr; Strategy 1.0 (PDF)</a>
+            <a href="#" class="dl-btn">&darr; Workshop report</a>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-<section class="gallery">
-  <div class="wrap">
-    <div class="kicker">From the field</div>
-    <h2>Moments from our <em>events</em>.</h2>
-    <p class="gallery-intro">A visual record of SUN-ARINU forums, workshops, and community outreach across Uganda.</p>
-    <div class="gallery-grid">
-      <div class="gitem wide"><img src="img/photo-01.jpg" alt="NNF 2024" loading="lazy"><div class="cap">NNF 2024 &middot; Kampala</div></div>
-      <div class="gitem"><img src="img/photo-06.jpg" alt="Karamoja field visit" loading="lazy"><div class="cap">Field visit &middot; Karamoja</div></div>
-      <div class="gitem tall"><img src="img/photo-02.jpg" alt="Symposium" loading="lazy"><div class="cap">Research symposium</div></div>
-      <div class="gitem"><img src="img/photo-10.jpg" alt="Outreach" loading="lazy"><div class="cap">Community outreach</div></div>
-      <div class="gitem"><img src="img/photo-13.jpg" alt="Executive Council" loading="lazy"><div class="cap">Executive Council</div></div>
-      <div class="gitem"><img src="img/photo-14.jpg" alt="Workshop" loading="lazy"><div class="cap">Training workshop</div></div>
-      <div class="gitem wide"><img src="img/photo-04.jpg" alt="Karamoja mission" loading="lazy"><div class="cap">Karamoja mission</div></div>
-      <div class="gitem"><img src="img/photo-07.jpg" alt="Members" loading="lazy"><div class="cap">Members meeting</div></div>
-    </div>
-  </div>
-</section>
-<section class="downloads">
-  <div class="wrap">
-    <div class="kicker">Resources</div>
-    <h2>Documents &amp; <em>reports</em>.</h2>
-    <p class="dl-intro">Everything from the founding constitution to strategy documents, annual reports, and communication toolkits.</p>
-    <div class="dl-list">
-      <div class="dl-item"><div class="dl-icon">PDF</div><div class="dl-info"><h4>SUN-ARINU Strategy 1.0 (2026&ndash;2030)</h4><div class="desc">Full strategic framework</div></div><div class="sz">3.2 MB</div><a href="#" class="dl-btn">&darr; Download</a></div>
-      <div class="dl-item"><div class="dl-icon">PDF</div><div class="dl-info"><h4>SUN-ARINU Constitution</h4><div class="desc">Governance &amp; founding document</div></div><div class="sz">1.1 MB</div><a href="#" class="dl-btn">&darr; Download</a></div>
-      <div class="dl-item"><div class="dl-icon">PDF</div><div class="dl-info"><h4>NNF 2024 Launch Report</h4><div class="desc">Photo &amp; narrative report</div></div><div class="sz">4.8 MB</div><a href="#" class="dl-btn">&darr; Download</a></div>
-      <div class="dl-item"><div class="dl-icon">PDF</div><div class="dl-info"><h4>Nutrition Research Landscape Assessment</h4><div class="desc">Uganda situation analysis</div></div><div class="sz">2.6 MB</div><a href="#" class="dl-btn">&darr; Download</a></div>
-      <div class="dl-item"><div class="dl-icon">PDF</div><div class="dl-info"><h4>Advocacy Toolkit</h4><div class="desc">Communication resources</div></div><div class="sz">1.9 MB</div><a href="#" class="dl-btn">&darr; Download</a></div>
-      <div class="dl-item"><div class="dl-icon">PDF</div><div class="dl-info"><h4>2025 Annual Report</h4><div class="desc">Progress summary</div></div><div class="sz">2.3 MB</div><a href="#" class="dl-btn">&darr; Download</a></div>
     </div>
   </div>
 </section>
@@ -189,4 +214,5 @@
   </div>
 </footer>
 <script src="script.js"></script>
-</body></html>
+</body>
+</html>
